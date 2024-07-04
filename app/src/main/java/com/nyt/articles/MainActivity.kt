@@ -9,14 +9,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.nyt.articles.navigation.AppNavHost
-import com.nyt.articles.ui.theme.StarterTheme
+import com.nyt.articles.ui.theme.NYTArticlesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            StarterTheme {
+            NYTArticlesTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     AppNavHost(modifier = Modifier.padding(innerPadding))
                 }
