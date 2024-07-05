@@ -1,8 +1,8 @@
 import com.nyt.articles.build_logic.convention.implementation
-import com.nyt.articles.build_logic.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
+import org.jetbrains.kotlin.gradle.utils.API
 
 class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -17,10 +17,8 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 implementation(project(":core:model"))
                 implementation(project(":core:data"))
                 implementation(project(":core:common"))
+                API(project(":core:presentation"))
 
-                // Define common dependencies for feature modules
-                implementation(libs.findLibrary("androidx-navigation-compose").get())
-                implementation(libs.findLibrary("kotlinx-serialization-json").get())
             }
         }
     }

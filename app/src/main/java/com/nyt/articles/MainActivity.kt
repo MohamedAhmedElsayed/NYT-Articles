@@ -10,7 +10,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.nyt.articles.navigation.AppNavHost
 import com.nyt.articles.ui.theme.NYTArticlesTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

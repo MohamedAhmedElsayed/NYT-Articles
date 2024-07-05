@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.nyt.popular.articles.presentation.PopularArticles
-import com.nyt.popular.articles.presentation.popularArticlesScreen
+import com.nyt.popular.articles.presentation.ui.navigation.PopularArticles
+import com.nyt.popular.articles.presentation.ui.navigation.popularArticlesScreen
 import kotlin.reflect.KClass
 
 @Composable

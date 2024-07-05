@@ -22,8 +22,16 @@ internal fun Project.configureAndroidCompose(
             implementation(platform(bom))
             androidTestImplementation(platform(bom))
             implementation(libs.findLibrary("androidx.compose.material3").get())
-            debugImplementation(libs.findLibrary("androidx-compose-ui-tooling").get())
+            implementation(libs.findLibrary("androidx-compose-foundation").get())
+            implementation(libs.findLibrary("androidx-lifecycle-viewModelCompose").get())
+            implementation(libs.findLibrary("androidx-compose-ui-util").get())
             implementation(libs.findLibrary("androidx-compose-ui-tooling-preview").get())
+            implementation(libs.findLibrary("compose-coil").get())
+            implementation(libs.findLibrary("compose-icons").get())
+            implementation(libs.findLibrary("androidx-navigation-compose").get())
+            implementation(libs.findLibrary("kotlinx-serialization-json").get())
+            debugImplementation(libs.findLibrary("androidx-compose-ui-tooling").get())
+
         }
     }
 }
