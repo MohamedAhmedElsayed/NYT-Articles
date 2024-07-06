@@ -14,14 +14,14 @@ import androidx.compose.ui.unit.dp
 import com.nyt.articles.core.common.extentions.emptyIfNull
 import com.nyt.articles.presentation.components.NYTImage
 import com.nyt.popular.articles.presentation.R
-import com.nyt.popular.articles.presentation.model.Article
+import com.nyt.popular.articles.presentation.model.NYTArticle
 
 
 @Composable
 fun ArticleListItem(
     modifier: Modifier = Modifier,
-    article: Article,
-    onItemClick: (Article) -> Unit
+    article: NYTArticle,
+    onItemClick: (NYTArticle) -> Unit
 ) {
 
     Card(

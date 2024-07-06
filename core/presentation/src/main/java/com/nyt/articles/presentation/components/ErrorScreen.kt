@@ -53,7 +53,7 @@ fun ErrorScreen(
             Text(
                 text = errorDescription,
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onError,
+                color = MaterialTheme.colorScheme.error,
                 fontSize = 16.sp
             )
         }

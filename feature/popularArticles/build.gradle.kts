@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "com.nyt.articles.popular"
-
-
 }
 
 dependencies {
-    api(projects.feature.popularArticles.presentation)
+    implementation(projects.feature.popularArticles.presentation)
+    implementation(projects.feature.popularArticles.domain)
+    implementation(projects.feature.popularArticles.data)
 }
