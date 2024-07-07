@@ -1,5 +1,6 @@
 plugins {
-    alias(libs.plugins.nytarticles.android.library)
+    alias(libs.plugins.nytarticles.android.feature)
+    alias(libs.plugins.nytarticles.android.library.compose)
 }
 
 android {

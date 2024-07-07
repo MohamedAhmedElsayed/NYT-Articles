@@ -2,6 +2,7 @@ package com.nyt.popular.articles.presentation.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
@@ -11,10 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.nyt.articles.core.common.entity.NYTArticle
 import com.nyt.articles.core.common.extentions.emptyIfNull
 import com.nyt.articles.presentation.components.NYTImage
 import com.nyt.popular.articles.presentation.R
-import com.nyt.popular.articles.presentation.model.NYTArticle
 
 
 @Composable
@@ -35,7 +36,7 @@ fun ArticleListItem(
         Column {
             NYTImage(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxSize(),
                 imageUrl = article.imageUrl,
                 placeholder = R.drawable.placeholder_image
             )

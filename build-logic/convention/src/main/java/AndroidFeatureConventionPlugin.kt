@@ -9,6 +9,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 apply("nytarticles.android.library")
                 apply("nytarticles.android.hilt")
                 apply("org.jetbrains.kotlin.plugin.serialization")
+                apply("kotlin-parcelize")
             }
 
             dependencies {

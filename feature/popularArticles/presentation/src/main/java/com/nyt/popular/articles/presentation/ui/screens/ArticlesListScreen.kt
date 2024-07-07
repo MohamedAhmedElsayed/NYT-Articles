@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.nyt.articles.core.common.entity.NYTArticle
 import com.nyt.articles.core.common.extentions.emptyIfNull
 import com.nyt.articles.presentation.components.ErrorScreen
 import com.nyt.popular.articles.presentation.R
@@ -28,16 +29,23 @@ import com.nyt.popular.articles.presentation.ui.viewmodel.ArticlesListUiState
 import com.nyt.popular.articles.presentation.ui.viewmodel.NYTArticlesViewModel
 
 @Composable
-fun PopularArticlesRoute(viewModel: NYTArticlesViewModel = hiltViewModel()) {
+fun PopularArticlesRoute(
+    onArticleClicked: (nytArticle: NYTArticle) -> Unit,
+    viewModel: NYTArticlesViewModel = hiltViewModel()
+) {
     val articlesListUiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    ArticlesListScreen(articlesListUiState) {
+    ArticlesListScreen(articlesListUiState, onArticleClicked = onArticleClicked) {
         viewModel dispatch ArticlesListUiEvent.OnPeriodSelected(it)
     }
 }
 
 @Composable
-fun ArticlesListScreen(articlesListUiState: ArticlesListUiState, onPeriodSelected: (Int) -> Unit) {
+fun ArticlesListScreen(
+    articlesListUiState: ArticlesListUiState,
+    onArticleClicked: (nytArticle: NYTArticle) -> Unit,
+    onPeriodSelected: (Int) -> Unit
+) {
 
     Box(
         modifier = Modifier
@@ -68,7 +76,7 @@ fun ArticlesListScreen(articlesListUiState: ArticlesListUiState, onPeriodSelecte
                 else -> {
                     LazyColumn {
                         items(articlesListUiState.articles) { article ->
-                            ArticleListItem(article = article) {}
+                            ArticleListItem(article = article, onItemClick = onArticleClicked)
                         }
                     }
                 }
@@ -80,5 +88,5 @@ fun ArticlesListScreen(articlesListUiState: ArticlesListUiState, onPeriodSelecte
 @Preview(showBackground = true)
 @Composable
 fun ArticlesListPreview() {
-    ArticlesListScreen(ArticlesListUiState()) {}
+    ArticlesListScreen(ArticlesListUiState(), onArticleClicked = {}, onPeriodSelected = {})
 }

@@ -1,7 +1,7 @@
 package com.nyt.popular.articles.presentation.ui.viewmodel
 
 import com.example.core.presentation.UiState
-import com.nyt.popular.articles.presentation.model.NYTArticle
+import com.nyt.articles.core.common.entity.NYTArticle
 import com.nyt.popular.articles.presentation.model.Period
 import com.nyt.popular.articles.presentation.model.popularArticlesPeriods
 

@@ -31,6 +31,8 @@ android {
 
 dependencies {
     implementation(projects.feature.popularArticles)
+    implementation(projects.feature.articleDetails)
+    implementation(projects.core.common)
     implementation(projects.core.presentation)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)

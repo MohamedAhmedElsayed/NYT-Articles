@@ -9,4 +9,5 @@ android {
     namespace = "com.nyt.articles.presentation"
 }
 dependencies {
+    implementation(projects.core.common)
 }
