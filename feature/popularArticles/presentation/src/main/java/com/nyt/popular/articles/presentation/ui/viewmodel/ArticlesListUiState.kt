@@ -7,7 +7,7 @@ import com.nyt.popular.articles.presentation.model.popularArticlesPeriods
 
 data class ArticlesListUiState(
     val periods: List<Period> = popularArticlesPeriods,
-    val selectedPeriodId: Int = popularArticlesPeriods.first().id,
+    val selectedPeriodId: Int = periods.first().id,
     val articles: List<NYTArticle> = emptyList(),
     val isLoading: Boolean = false,
     val errorMessage: String? = null

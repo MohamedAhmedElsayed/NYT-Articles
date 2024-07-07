@@ -3,24 +3,19 @@ package com.nyt.articles.core.data.remote.service
 import android.util.Log
 import com.nyt.articles.core.data.remote.model.RemoteError
 import com.nyt.articles.core.data.remote.model.Resource
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 
 interface NetworkRemoteServiceCall {
-
-    /**
-     * safeRemoteCall
-     * @param apiCall as suspend fn to call api
-     * pass suspend api fn as parameter to safeRemoteCall fn
-     * invoke Api at IO thread and handle logic
-     * @return Resource< T>  hase success state data and failure state data
-     */
+    //centralized function to handle api calls
     suspend fun <T> safeRemoteCall(
+        dispatcher: CoroutineDispatcher = Dispatchers.IO,
         apiCall: suspend () -> T
     ): Resource<T> {
-        return withContext(Dispatchers.IO) {
+        return withContext(dispatcher) {
             try {
                 val response = apiCall.invoke()
                 Resource.Success(response)
@@ -31,6 +26,7 @@ interface NetworkRemoteServiceCall {
         }
     }
 
+    //based on the failure we can change the logic it is simple for now
     private fun <T> Exception.fromExceptionToRemoteError() = when (this) {
         is IOException -> Resource.Error<T>(RemoteError.ConnectionError, code = -1)
         is HttpException -> {

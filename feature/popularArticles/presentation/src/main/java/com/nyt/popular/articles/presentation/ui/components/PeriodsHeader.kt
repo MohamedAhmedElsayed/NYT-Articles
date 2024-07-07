@@ -74,16 +74,14 @@ private fun PeriodChip(
             )
         },
         selected = isSelected,
-        leadingIcon = if ((isSelected)) {
-            {
+        leadingIcon = {
+            if ((isSelected)) {
                 Icon(
                     imageVector = Icons.Filled.Done,
                     contentDescription = "Done icon",
                     modifier = Modifier.size(FilterChipDefaults.IconSize)
                 )
             }
-        } else {
-            null
         },
     )
 

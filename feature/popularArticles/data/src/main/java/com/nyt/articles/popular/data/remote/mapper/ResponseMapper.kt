@@ -9,16 +9,16 @@ import com.nyt.articles.popular.domain.model.Media
 import com.nyt.articles.popular.domain.model.MediaMetadata
 import com.nyt.articles.popular.domain.model.PopularArticlesData
 
-fun NYTArticleResponse.mapToDomain(): PopularArticlesData {
-    val domainArticles = articles.map { it.toDomain() }
+fun NYTArticleResponse.mapToDomainEntity(): PopularArticlesData {
+    val domainArticles = articles.map { it.mapToDomainEntity() }
     return PopularArticlesData(domainArticles, status)
 }
 
-fun ArticleEntity.toDomain(): Article {
+fun ArticleEntity.mapToDomainEntity(): Article {
     return Article(
         byline = byline,
         id = id,
-        media = media?.map { it.toDomain() },
+        media = media?.map { it.mapToDomainEntity() },
         publishedDate = publishedDate,
         section = section,
         source = source,
@@ -32,14 +32,14 @@ fun ArticleEntity.toDomain(): Article {
     )
 }
 
-fun MediaEntity.toDomain() = Media(
+fun MediaEntity.mapToDomainEntity() = Media(
     caption = caption,
     copyright = copyright,
-    mediaMetadata = mediaMetadata.map { it.toDomain() },
+    mediaMetadata = mediaMetadata.map { it.mapToDomainEntity() },
     subtype = subtype,
     type = type
 )
 
-fun MediaMetadataEntity.toDomain() = MediaMetadata(
+fun MediaMetadataEntity.mapToDomainEntity() = MediaMetadata(
     format = format, height = height, url = url, width = width
 )

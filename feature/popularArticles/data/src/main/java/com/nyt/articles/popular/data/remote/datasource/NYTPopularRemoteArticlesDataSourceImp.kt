@@ -5,6 +5,6 @@ import javax.inject.Inject
 
 class NYTPopularRemoteArticlesDataSourceImp @Inject constructor(private val popularService: PopularArticlesService) :
     NYTPopularRemoteArticlesDataSource {
-    override suspend fun getPopularArticles(periodId: Int) =
+    override suspend fun getPopularArticlesByPeriod(periodId: Int) =
         popularService.getMostPopularArticles(periodId)
 }

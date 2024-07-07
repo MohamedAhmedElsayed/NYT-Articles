@@ -25,10 +25,12 @@ abstract class BaseViewModel<Event : UiEvent, State : UiState, Effect : UiEffect
     private val _uiState: MutableStateFlow<State> = MutableStateFlow(initialState)
     val uiState = _uiState.asStateFlow()
 
-    private val _event: Channel<Event> = Channel<Event>()
+    private val _event: Channel<Event> = Channel()
 
     private val _effect: Channel<Effect> = Channel()
     val effect = _effect.receiveAsFlow()
+
+    //to handle if multiple calls occurred at the same time to ensure each state is reflected
     private val mutex by lazy { Mutex() }
 
     init {

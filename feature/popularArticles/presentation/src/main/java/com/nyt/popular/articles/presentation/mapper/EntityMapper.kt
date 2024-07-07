@@ -4,7 +4,7 @@ import com.nyt.articles.core.common.entity.NYTArticle
 import com.nyt.articles.popular.domain.model.Article
 
 
-fun Article.toPresentation(): NYTArticle {
+fun Article.toPresentationModel(): NYTArticle {
     return NYTArticle(
         byline = byline,
         id = id,

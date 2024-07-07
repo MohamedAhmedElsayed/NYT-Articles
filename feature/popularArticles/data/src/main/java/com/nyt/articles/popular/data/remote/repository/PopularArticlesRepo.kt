@@ -4,7 +4,7 @@ import com.nyt.articles.core.data.remote.model.RemoteError.GeneralError.toErrorM
 import com.nyt.articles.core.data.remote.model.Resource
 import com.nyt.articles.core.data.remote.service.NetworkRemoteServiceCall
 import com.nyt.articles.popular.data.remote.datasource.NYTPopularRemoteArticlesDataSource
-import com.nyt.articles.popular.data.remote.mapper.mapToDomain
+import com.nyt.articles.popular.data.remote.mapper.mapToDomainEntity
 import com.nyt.articles.popular.domain.model.PopularArticlesResponse
 import com.nyt.articles.popular.domain.repo.PopularArticlesRepo
 import javax.inject.Inject
@@ -13,9 +13,10 @@ class PopularArticlesRepoImp @Inject constructor(private val remoteDataSource: N
     PopularArticlesRepo, NetworkRemoteServiceCall {
     override suspend fun getMostPopularArticles(periodId: Int): PopularArticlesResponse {
         return when (val result =
-            safeRemoteCall { remoteDataSource.getPopularArticles(periodId) }) {
+            safeRemoteCall { remoteDataSource.getPopularArticlesByPeriod(periodId) }) {
+            //for simplicity we return the message
             is Resource.Error -> PopularArticlesResponse.Error(result.remoteError.toErrorMessage())
-            is Resource.Success -> PopularArticlesResponse.Success(result.data.mapToDomain())
+            is Resource.Success -> PopularArticlesResponse.Success(result.data.mapToDomainEntity())
         }
     }
 

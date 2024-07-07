@@ -1,9 +1,5 @@
-package com.nyt.article.details.presentation.ui
+package com.nyt.article.details.presentation.ui.screens
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -24,6 +20,7 @@ import com.nyt.article.details.presentation.ui.component.DetailsRow
 import com.nyt.article.details.presentation.ui.component.RowWithDivider
 import com.nyt.articles.core.common.entity.NYTArticle
 import com.nyt.articles.core.common.extentions.emptyIfNull
+import com.nyt.articles.core.common.extentions.openInBrowser
 import com.nyt.articles.presentation.components.NYTImage
 
 @Composable
@@ -62,7 +59,8 @@ fun ArticleDetailsScreen(nytArticle: NYTArticle) {
             value = nytArticle.updated.emptyIfNull()
         )
         OutlinedButton(
-            onClick = { openInBrowser(nytArticle.url.emptyIfNull(), context) }, modifier = Modifier
+            onClick = { context.openInBrowser(nytArticle.url.emptyIfNull()) },
+            modifier = Modifier
                 .fillMaxWidth(.9f)
                 .padding(top = 32.dp)
                 .align(Alignment.CenterHorizontally)
@@ -73,11 +71,3 @@ fun ArticleDetailsScreen(nytArticle: NYTArticle) {
 
 }
 
-fun openInBrowser(url: String, context: Context) {
-    runCatching {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        context.startActivity(intent)
-    }.onFailure {
-        Log.e("Error", "openInBrowser: $it")
-    }
-}

@@ -19,7 +19,6 @@ import com.nyt.articles.core.common.entity.NYTArticle
 import com.nyt.articles.core.common.extentions.emptyIfNull
 import com.nyt.articles.presentation.components.ErrorScreen
 import com.nyt.popular.articles.presentation.R
-import com.nyt.popular.articles.presentation.model.popularArticlesPeriods
 import com.nyt.popular.articles.presentation.ui.components.ArticleListItem
 import com.nyt.popular.articles.presentation.ui.components.Loading
 import com.nyt.popular.articles.presentation.ui.components.NYTMessageComponent
@@ -35,8 +34,11 @@ fun PopularArticlesRoute(
 ) {
     val articlesListUiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    ArticlesListScreen(articlesListUiState, onArticleClicked = onArticleClicked) {
-        viewModel dispatch ArticlesListUiEvent.OnPeriodSelected(it)
+    ArticlesListScreen(
+        articlesListUiState = articlesListUiState,
+        onArticleClicked = onArticleClicked
+    ) { periodId ->
+        viewModel dispatch ArticlesListUiEvent.OnPeriodSelected(periodId)
     }
 }
 
@@ -54,7 +56,7 @@ fun ArticlesListScreen(
     ) {
         Column {
             PeriodsHeader(
-                periodList = popularArticlesPeriods,
+                periodList = articlesListUiState.periods,
                 articlesListUiState.selectedPeriodId, onPeriodSelected = onPeriodSelected
             )
             when {
