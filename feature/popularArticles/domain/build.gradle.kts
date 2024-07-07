@@ -9,5 +9,5 @@ android {
 
 dependencies {
     implementation(projects.core.domain)
-
+    testImplementation(libs.bundles.testing)
 }

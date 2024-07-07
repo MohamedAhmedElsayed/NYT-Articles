@@ -1,6 +1,5 @@
 package com.nyt.articles.core.data.remote.service
 
-import android.util.Log
 import com.nyt.articles.core.data.remote.model.RemoteError
 import com.nyt.articles.core.data.remote.model.Resource
 import kotlinx.coroutines.CoroutineDispatcher
@@ -20,7 +19,7 @@ interface NetworkRemoteServiceCall {
                 val response = apiCall.invoke()
                 Resource.Success(response)
             } catch (throwable: Exception) {
-                Log.e("API Call Error", "${throwable.message} $throwable")
+//                Log.e("API Call Error", "${throwable.message} $throwable")
                 throwable.fromExceptionToRemoteError()
             }
         }

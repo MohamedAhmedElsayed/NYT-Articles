@@ -13,5 +13,8 @@ dependencies {
     implementation(projects.core.domain)
     implementation(projects.core.presentation)
     implementation(projects.feature.popularArticles.domain)
+    testImplementation(libs.bundles.testing)
+    testImplementation(libs.coroutines.test)
+
 
 }

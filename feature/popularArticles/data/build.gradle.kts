@@ -10,5 +10,6 @@ dependencies {
     implementation(projects.core.data)
     implementation(projects.feature.popularArticles.domain)
     implementation(libs.bundles.networking.retrofit)
+    testImplementation(libs.bundles.testing)
 
 }
