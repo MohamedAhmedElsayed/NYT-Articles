@@ -7,7 +7,7 @@ This repository contains an Android application developed to display the NYT pop
 - [Architecture](#architecture)
 - [Attached Files](#attached-files)
 - [Unit Testing](#unit-testing)
-- [Video And APK] (#video-and-APK)
+- [Video And APK](#video-and-APK)
  
 
 ## Architecture
@@ -57,7 +57,8 @@ The project is organized into modules based on features and layers, which helps 
 ## Attached Files
 
 - **Source Code:** The complete source code of the application.
-- **APK:** The compiled APK file for installation. 
+- **APK:** The compiled APK file for installation.
+- **Video** To show the app while running.
 
 ## Unit Testing
 
