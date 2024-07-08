@@ -15,6 +15,7 @@ dependencies {
     implementation(projects.feature.popularArticles.domain)
     testImplementation(libs.bundles.testing)
     testImplementation(libs.coroutines.test)
+    androidTestImplementation(libs.bundles.android.test)
 
 
 }

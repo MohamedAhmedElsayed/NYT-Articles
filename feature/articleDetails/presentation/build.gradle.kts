@@ -12,4 +12,6 @@ android {
 dependencies {
     implementation(projects.core.common)
     implementation(projects.core.presentation)
+    androidTestImplementation(libs.bundles.android.test)
+
 }

@@ -13,4 +13,5 @@ dependencies {
     implementation(projects.feature.popularArticles.presentation)
     implementation(projects.feature.popularArticles.domain)
     implementation(projects.feature.popularArticles.data)
+    androidTestImplementation(libs.bundles.android.test)
 }

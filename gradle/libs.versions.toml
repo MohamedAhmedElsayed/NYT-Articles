@@ -28,7 +28,9 @@ composeIcons = "1.0.0"
 compose = "1.4.0"
 mockito = "4.6.1"
 mockito-kotlin = "4.0.0"
-coroutines-test = "1.7.3"
+coroutines-test = "1.8.1"
+test-runner = "1.6.1"
+test-rules = "1.6.1"
 [libraries]
 # Compose
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
@@ -62,6 +64,9 @@ mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mo
 mockito-junit-jupiter = { group = "org.mockito", name = "mockito-junit-jupiter", version.ref = "mockito" }
 mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockito-kotlin" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }
+androidx-rulles = { group = "androidx.test", name = "rules", version.ref = "test-rules" }
+
 # End
 
 # Hilt
@@ -97,7 +102,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 [bundles]
 networking-retrofit = ["retrofit", "okhttp", "moshi", "moshi-kotlin", "loggingInterceptor", "converterMoshi"]
 testing = ["junit", "mockito-core", "mockito-junit-jupiter", "mockito-kotlin"]
-
+android-test = ["androidx-runner", "androidx-rulles", "androidx-espresso-core", "androidx-junit"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
